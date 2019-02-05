@@ -78,3 +78,13 @@ def image_center(img):
   x, y = img.shape
 
   return tuple([x/2, y/2])
+
+def square_size(img):
+  x, y = img.shape
+
+  return (x / 9, y / 9)
+
+def crop_square(img, i, j):
+  xl, yl = square_size(img)
+
+  return img[int(i*xl):int((i+1)*xl) ,int(j*yl):int((j+1)*yl)]
