@@ -7,14 +7,10 @@ import math
 def prepare_image(img_path):
   # get grayscale image
   gray_img = cv2.imread(img_path, 0)
-  gray_img = cv2.bitwise_not(gray_img)
-
-  denoised_img = cv2.fastNlMeansDenoising(gray_img, None, 10, 7, 21)
-
+  bitwised_img = cv2.bitwise_not(gray_img)
+  denoised_img = cv2.fastNlMeansDenoising(bitwised_img, None, 10, 7, 21)
   thresholded_img = cv2.adaptiveThreshold(denoised_img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 201, 2)
-  # plt.imshow(thresholded_img)
-  # plt.title("adaptive: ")
-  # plt.show()
+
   return thresholded_img
 
 def find_sudoku(prepared_img):

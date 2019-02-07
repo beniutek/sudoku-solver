@@ -45,31 +45,14 @@ for i in range(10):
 #   for j in range(9):
 #     digits.append(transforms.crop_square(transformed, i, j))
 
-# for digit in digits:
-#   a,b = digit.shape
 
-# plt.subplot(221)
 plt.imshow(sudoku_img)
 plt.title('sudoku image: ')
 plt.axis('off')
-# plt.set_cmap(cmap)
 plt.show()
-# plt.subplot(222)
+
 plt.imshow(transformed)
-plt.title('biggest contour: ')
+plt.title('transformed: ')
 plt.axis('off')
-# plt.set_cmap(cmap)
 plt.show()
 
-# plt.subplot(421)
-# plt.imshow(one_digit)
-# plt.title('digit: ')
-# plt.axis('off')
-# plt.set_cmap(cmap)
-
-# plt.subplot(422)
-# plt.imshow(cropp)
-# plt.title('cropp: ')
-# plt.axis('off')
-# plt.set_cmap(cmap)
-# plt.show()
