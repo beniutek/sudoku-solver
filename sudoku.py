@@ -40,7 +40,7 @@ digits = []
 
 for i in range(9):
   for j in range(9):
-    digits << transforms.crop_square(transformed, i, j)
+    digits.append(transforms.crop_square(transformed, i, j))
 
 
 plt.subplot(231)
