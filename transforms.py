@@ -19,24 +19,13 @@ def prepare_image(img_path):
 
 def find_sudoku(prepared_img):
   max_contour = get_biggest_contour(prepared_img)
-
-  return crop_image(prepared_img, max_contour)
+  return cv2.drawContours(prepared_img, [max_contour], 0, (100, 40, 150), 10)
+  # return crop_image(prepared_img, max_contour)
 
 def get_biggest_contour(img):
   contours, _ = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
   return max(contours, key=cv2.contourArea)
-
-def crop_image(img, contour):
-  mask = np.zeros_like(img) # Create mask where white is what we want, black otherwise
-  return cv2.drawContours(img, [contour], 0, (100, 40, 150), 40) # Draw filled contour in mask
-  # out = np.zeros_like(img) # Extract out the object and place into output image
-  # out[mask == 255] = img[mask == 255]
-  # (x, y) = np.where(mask == 255)
-  # (topx, topy) = (np.min(x), np.min(y))
-  # (bottomx, bottomy) = (np.max(x), np.max(y))
-
-  # return out#[topx:bottomx, topy:bottomy]
 
 def get_contour_extreme_points(img, contour):
   m_point = image_center(img)
